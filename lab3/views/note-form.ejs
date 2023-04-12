@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('head'); %>
+    <title>Note Form</title>
+</head>
+<body>
+<%- include('header'); %>
+<section>
+    <div class="flex">
+<!--        deleting note using method-override middleware (POST -> DELETE)-->
+        <a target="_blank" href="/notes/<%= noteIndex %>/view"><img src="/images/icons8-share.svg" alt="share"></a>
+        <form action="/notes/<%= noteIndex %>?_method=DELETE" method="POST">
+            <button class="button-img delete" type="submit"></button>
+        </form>
+    </div>
+    <div class="note note-form">
+<!--        updating note using method-override middleware (POST -> PUT)-->
+        <form action="/notes/<%= noteIndex %>?_method=PUT" method="POST">
+            <input type="text" name="title" value="<%= note.title %>" required>
+            <br>
+            <textarea name="content" required><%= note.content %></textarea>
+            <br>
+            <div class="flex">
+                <button class="button-img update" type="submit"></button>
+                <p class="date"><%= note.createdAt %></p>
+            </div>
+        </form>
+    </div>
+
+</section>
+
+</body>
+</html>

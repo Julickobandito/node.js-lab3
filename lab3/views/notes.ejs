@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include('head'); %>
+    <title>Notes</title>
+</head>
+    <body>
+        <%- include('header'); %>
+        <section>
+            <div class="flex">
+                <h1 class="section-title">Notes</h1>
+                <a class="create-button" href="/notes/new"><img class="create-img" src="/images/writing.png" alt="create"></a>
+            </div>
+
+            <div class="flex">
+                <% notes.forEach((note, index) => { %>
+                    <a class="note" href="/notes/<%= index %>">
+                        <h3 class="note-title"><%= note.title.slice(0, 20) %><% if(note.title.length > 20) { %>...<% } %></h3>
+                        <p class="date"><%= note.createdAt %></p>
+                        <p><%= note.content.slice(0, 30) %><% if(note.content.length > 30) { %>...<% } %></p>
+                    </a>
+                <% }); %>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <%- include('head'); %>
+        <title>Note Form</title>
+    </head>
+    <body>
+    <%- include('header'); %>
+    <section>
+        <div class="note note-form">
+            <form action="/notes" method="POST">
+                <input type="text" name="title" placeholder="Title" required>
+                <br>
+                <textarea placeholder="Type here.." name="content" required></textarea>
+                <br>
+                <button class="button-img create" type="submit"></button>
+            </form>
+        </div>
+    </section>
+    </body>
+</html>
